@@ -19,3 +19,8 @@ output "iam_access_key_secret" {
   value       = element(concat(aws_iam_access_key.this.*.secret, [""]), 0)
   sensitive   = true
 }
+
+output "iam-policy-output"{
+  description = "The iam policy attachment"
+  value     =     element(concat(aws_iam_user_policy_attachment.this_arn.*.policy_arn, [""]), 0)
+}
